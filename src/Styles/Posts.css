@@ -1,0 +1,83 @@
+.post {
+    background-color: #222222;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    /* border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px; */
+    border: 2px solid;
+    border-bottom-color: #101010;
+    border-right-color: #101010;
+    border-top-color: #292929;
+    border-left-color: #292929;
+    border-radius: 10px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.post p {
+    margin: 0 0 10px 0;
+}
+.post a {
+    color: #f24078;
+    /* text-decoration: none; */
+    /* font-size: 14px; */
+    margin-bottom: 10px;
+    /* margin-left: 5px; */
+    transition: 1s;
+}
+.post .postLink {
+    /* margin-left: px; */
+    margin-bottom: 20px;
+}
+
+.post h2 {
+    margin: 0 0 20px 0;
+}
+
+.post .content {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.post button {
+    width: 75px;
+    height: 35px;
+    background-color: #a72951;
+    margin: 20px 20px 0 0;
+    color: white;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+.post:hover {
+    background-color: #262626;
+}
+
+.post:hover a {
+    color: white
+}
+
+.post:hover button {
+    background-color: #222222;
+    cursor: pointer;
+}
+
+.postCreate {
+    color: white
+}
+
+.post button:hover {
+    background-color: #a72951;
+}
+
+@media only screen and (max-width: 600px){
+    .post {
+        margin-left: 0;
+        width: auto;
+    }
+    .post .content {
+        line-height: 25px;
+    }
+}
