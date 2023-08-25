@@ -1,31 +1,45 @@
-# Create React App
+# Glassdit - a Real-Time Message Board
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+## Table of contents
 
-## Deploy Your Own
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+  - [Built with](#built-with)
+- [Author](#author)
 
-Deploy your own Create React App project with Vercel.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+## Overview
 
-_Live Example: https://create-react-template.vercel.app/_
+### The challenge
 
-## Available Scripts
+Set goals for the application:
 
-In the project directory, you can run:
+- Create a complete interactable message board
+- Upload | Edit | Read posts, Post comments
+- Updated in real-time
+- Changes on other platforms using same API will reflect as well
 
-### `npm start`
+### Screenshot
+Desktop UI
+![](./screenshot1.jpg)
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Mobile UI
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+<img src="./screenshot2.jpg" width="350">
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Links
 
-### `npm run build`
+- Live Site URL: [Github](https://glassdit.vercel.app)
 
-Builds the app for production to the `build` folder.
+### Built with
 
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+- React
+- CSS
+
+
+## Author
+
+- Website - [miraskab](https://github.com/mkab2000)
