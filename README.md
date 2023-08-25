@@ -23,16 +23,16 @@ Set goals for the application:
 
 ### Screenshot
 Desktop UI
-![](./screenshot1.jpg)
+![](./screenshot1.png)
 
 Mobile UI
 
-<img src="./screenshot2.jpg" width="350">
+<img src="./screenshot2.png" width="350">
 
 
 ### Links
 
-- Live Site URL: [Github](https://glassdit.vercel.app)
+- Live Site URL: [Vercel](https://glassdit.vercel.app)
 
 ### Built with
 
