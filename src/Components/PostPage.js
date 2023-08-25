@@ -7,7 +7,7 @@ class PostPage extends React.Component {
         super(props);
         const currentUrl = window.location.href;
 
-        this.state = {_id: currentUrl.split('/').slice(-1), postData: null, userInput: "", comments: []}
+        this.state = {_id: currentUrl.split('/').slice(-1), postData: null, userInput: "", comments: [], showErrorComment: false}
 
         this.handleNewComment = this.handleNewComment.bind(this);
         this.handleChange = this.handleChange.bind(this);   
@@ -54,6 +54,14 @@ class PostPage extends React.Component {
     handleNewComment() {
         // console.log(this.state.userInput)
         // const newComments = this.state.postData.comments
+        if(this.state.userInput.trim() === '') {
+            this.setState({showErrorComment: true})
+            return
+        }
+        else {
+            this.setState({showErrorComment: false})
+        }
+
         const sendComment = async () => {
             const response = await fetch(
             "https://realtime-rebbit-backend.vercel.app/api/posts/" + this.state._id + "/comments",
@@ -86,6 +94,9 @@ class PostPage extends React.Component {
 
                 <div className="createComments">
                     <textarea onChange={this.handleChange} value={this.state.userInput} />
+                    {this.state.showErrorComment && (
+                        <p className="error-text">Field is necessary</p>
+                    )}
                     <button type='button' onClick={this.handleNewComment}>Submit</button>
                 </div>
 
