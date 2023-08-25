@@ -38,7 +38,7 @@ class NewPost extends React.Component {
                     "Content-Type": "application/json",
                 }, 
             });
-            window.location.replace("/")
+            // window.location.replace("/")
         };
         fetchData();
     }
@@ -55,7 +55,8 @@ class NewPost extends React.Component {
                         <h2>Content</h2>
                         <textarea onChange={this.contentChange} value={this.state.contentInput} />
 
-                        <button type="button" onClick={this.handleSubmit}>Submit</button>
+                        
+                        <Link to={"/"}><button type="button" onClick={this.handleSubmit}>Submit</button></Link>
                     </div>
                 </form>
             </div>

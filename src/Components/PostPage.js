@@ -1,8 +1,5 @@
 import React from 'react';
 import Post from "./Post"
-import Comment from "./Comment"
-import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import "../Styles/PostPage.css"
 
 class PostPage extends React.Component {
@@ -25,16 +22,39 @@ class PostPage extends React.Component {
             this.setState({
                 postData: json.data
             });
-            console.log("fantatheuwitww", json.data)
+            // console.log("fantatheuwitww", json.data)
             this.setState({...this.state, comments: json.data.comments})
+
+            const websocket = this.props.websocket
+        
+            
 
         };
         fetchData();
+
+        const websocket = this.props.websocket;
+
+        websocket.onmessage = (event) => {
+            this.handleWebSocketMessage(event)
+        };
+
+    }
+    handleWebSocketMessage(event) {
+        // console.log("PostPage websocket")    
+        const newEvent = JSON.parse(event.data);
+        // console.log("test")
+        if(newEvent.action === 15) {
+            const newMessage = JSON.parse(newEvent.messages[0].data)
+            // console.log(newMessage)
+            if(newMessage.action === "updatePost") {
+                this.setState({postData: newMessage.data, comments: newMessage.data.comments})
+            }
+        }
     }
     handleNewComment() {
-        console.log(this.state.userInput)
+        // console.log(this.state.userInput)
         // const newComments = this.state.postData.comments
-        const postComment = async () => {
+        const sendComment = async () => {
             const response = await fetch(
             "https://realtime-rebbit-backend.vercel.app/api/posts/" + this.state._id + "/comments",
             {
@@ -45,12 +65,8 @@ class PostPage extends React.Component {
                 }, 
             });
 
-            const newComment = {text: this.state.userInput};
-            const comments = [...this.state.comments, newComment]
-            this.setState({...this.state, comments: comments})
-
         };
-        postComment();
+        sendComment();
 
     }
     handleChange(e) {
@@ -71,13 +87,12 @@ class PostPage extends React.Component {
                 <div className="createComments">
                     <textarea onChange={this.handleChange} value={this.state.userInput} />
                     <button type='button' onClick={this.handleNewComment}>Submit</button>
-                        
-
                 </div>
+
                 <div>
                     <h1>Comments</h1>
                     <ul>
-                        {this.state.comments.map(comment => <li><Comment commentData = {comment} /></li>)}
+                        {this.state.comments.map(comment => <li key={comment._id}>{comment.text}</li>)}
                     </ul>
                 </div>
             </div>

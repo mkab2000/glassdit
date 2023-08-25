@@ -27,3 +27,7 @@
     border-radius: 25px;
     margin: 0 auto;
 }
+
+.NewOrUpdatePost a {
+    text-decoration: none;
+}

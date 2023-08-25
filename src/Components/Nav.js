@@ -1,6 +1,6 @@
-import logo from './logo.png';
+import logo from '../logo.png';
 import { Link } from 'react-router-dom';
-import './Styles/Nav.css'
+import '../Styles/Nav.css'
 
 // const navStyle = {height: "50px", display: "flex", flexDirection: "row", alignItems: "center", padding: 30, backgroundColor: "#262626"}
 const logoStyle = {height: "50px"}

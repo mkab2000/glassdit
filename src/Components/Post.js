@@ -15,6 +15,13 @@ class Post extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);   
 
     }
+    componentDidUpdate(prevProps) {
+        if(this.props.postData !== prevProps.postData){
+            this.setState({
+                postData: this.props.postData
+            })
+        }
+    }
     handleDelete() {
         const deleteData = async () => {
             this.setState({...this.state, isDeleteLoading: true})
@@ -26,7 +33,7 @@ class Post extends React.Component {
                     "Content-Type": "application/json",
                 }, 
             });
-            this.props.handleDeletedPost(this.state.postData._id)
+            // this.props.handleDeletedPost(this.state.postData._id)
         };
         deleteData();
     }
